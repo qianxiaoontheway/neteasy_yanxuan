@@ -15,7 +15,7 @@
     font-size: 20px;
     display:inline-block;
     margin:10px;
-    color:
+  
   }
 
   </style>
@@ -32,12 +32,12 @@
   <div class="box">9</div>
   <div class="box">10</div>
   <script>
-  const boxes=document.querySelectorAll('.box');
-  box.forEach(function(box)) {
-box.addEventListener('click',function(){
-    alert(this.innerTHML);
-})
-  })
+    const boxes=document.querySelectorAll('.box');
+    box.forEach(function(box){
+      box.addEventListener('click',function(){
+        alert(this.innerHTML);
+      })
+    });
   </script>
 </body>
 </html>
