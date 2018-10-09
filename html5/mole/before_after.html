@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+  .box {
+    position: relative;
+  }
+  .box:before, .box:after {
+    display: block;
+    background:red;
+    line-height: 2;
+    position: absolute;
+    left:0;
+    right: 0;
+    height: 1px;
+    background-color: #333;
+  } 
+  .box:before {
+    content: ""; 
+  }
+  .box:after {
+    top: 0;
+    content: "";
+    background: green;
+    bottom:0;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    我是一个盒子
+  </div>
+  <script>
+    const holes = document.querySelectorAll('.hole');
+  const scoreBoard = document.querySelector('.score');
+  const moles = document.querySelectorAll('.mole');
+  let lastHole;
+  let timeUp = false;
+  let score = 0;
+    
+  function startGame() {
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    score = 0;
+    peep();
+    setTimeout(() =>{
+      timeUp = true;
+      alert('游戏结束');
+    } , 20000);
+  }
+
+  function randomTime(min, max) {
+    return Math.round(Math.random()*(max-min)+min);
+  }
+
+  function randomHole(holes) {
+    const idx = Math.floor(Math.random() * holes.length);
+    const hole = holes[idx];
+    if (hole == lastHole) {
+      console.log('Ah nah thats the same one bud');
+      return randomHole(holes);
+    }
+    lastHole = hole;
+    return hole;
+  }
+
+
+  function peep() {
+    const time = randomTime(500, 2000); 
+    // console.log(time);
+    // console.log(holes);
+    const hole = randomHole(holes);
+    // console.log(hole);
+    hole.classList.add('up');
+    setTimeout(() => {
+      hole.classList.remove('up');
+      if (!timeUp) peep();
+    }, time);
+  }
+
+  function bonk(e) {
+    // if (!e.isTrusted) return;
+    score++;
+    this.parentNode.classList.remove('up');
+    scoreBoard.textContent = score;
+  }
+  moles.forEach(mole => mole.addEventListener('click', bonk));
+
+  </script>
+</body>
+</html>
