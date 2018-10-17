@@ -46,3 +46,18 @@ ul,li{
 .flag.flag-item.figure img{
     max-width: 100%;
 }
+.flag.flag-item.figcaption{
+    width: 133.333333rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    position:relative;
+}
+.flag.flag-item{
+    display:table-cell;
+    padding: .16rem 0;
+    vertical-align: top;
+    background-color:#fff;
+}
+.flag-item{
+    margin: 0;
+}
