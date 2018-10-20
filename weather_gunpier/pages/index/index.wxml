@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+<calendar weeks-type="full-en" cell-size="30"/>
+
+</view>
+<view class="icon">
+    <icon type ="home" color="red" />
+    <icon type="add" color="yellow" />
+
+</view>
