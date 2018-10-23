@@ -1,0 +1,3 @@
+<view class="custom-class demo-block">
+    <view class="demo-block_title">{{title}}</view>
+</view>
