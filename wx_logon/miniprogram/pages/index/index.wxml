@@ -1,0 +1,7 @@
+<view class="container">
+    <!--授权使用信息的权利 之前为-1
+    授权成功为  登录前0
+    登陆后为1 -->
+    <view class="auth-button" wx:if="{{auth===0}}"></view>
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">使用该功能需要授权登录</button>
+</view>
